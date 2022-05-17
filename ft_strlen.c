@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtubtimt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/16 21:17:29 by jtubtimt          #+#    #+#             */
-/*   Updated: 2022/05/16 21:21:18 by jtubtimt         ###   ########.fr       */
+/*   Created: 2022/05/16 23:27:19 by jtubtimt          #+#    #+#             */
+/*   Updated: 2022/05/16 23:51:28 by jtubtimt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/* #include <stdio.h> */
-
-int	ft_isdigit(int c)
+/*
+#include <stdio.h>
+*/
+size_t	ft_strlen(const char *s)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
-}
+	int	n;
 
+	n = 0;
+	while (s[n])
+		n++;
+	return (n);
+}
 /*
 int main()
 {
-    printf("%d",ft_isdigit('8'));
+    printf("%ld",ft_strlen("12345"));
 }
 */

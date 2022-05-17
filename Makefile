@@ -12,6 +12,9 @@
 
 SRCS = ft_isdigit.c \
 		ft_isalpha.c \
+		ft_isalnum.c \
+		ft_strlen.c \
+
 		
 OBJS = $(SRCS:.c=.o)
 
