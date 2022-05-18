@@ -20,5 +20,11 @@ int					ft_isdigit(int c);
 int					ft_isalpha(int c);
 int					ft_isalnum(int c);
 size_t				ft_strlen(const char *s);
+void				ft_putchar_fd(char c, int fd);
+void				ft_putendl_fd(char *s, int fd);
+void				ft_putstr_fd(char *s, int fd);
+int					ft_tolower(int c);
+int					ft_toupper(int c);
+void				*ft_memset(void *s, int c, size_t n);
 
 #endif
