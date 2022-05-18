@@ -25,6 +25,8 @@ void				ft_putendl_fd(char *s, int fd);
 void				ft_putstr_fd(char *s, int fd);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+int					ft_isascii(int c);
+int					ft_isprint(int c);
 void				*ft_memset(void *s, int c, size_t n);
 
 #endif

@@ -19,6 +19,8 @@ SRCS = ft_isdigit.c \
 		ft_putstr_fd.c \
 		ft_tolower.c \
 		ft_toupper.c \
+		ft_isascii.c \
+		ft_isprint.c \
 		ft_memset.c \
 
 
