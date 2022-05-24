@@ -22,6 +22,8 @@ SRCS = ft_isdigit.c \
 		ft_isascii.c \
 		ft_isprint.c \
 		ft_memset.c \
+		ft_bzero.c \
+		ft_calloc.c \
 
 
 		

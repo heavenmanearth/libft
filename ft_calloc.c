@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtubtimt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,16 +14,20 @@
 /*
 #include <stdio.h>
 */
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
+	size_t			n;
 	size_t			i;
 	unsigned char	*temp;
 
+	n = nmemb * size;
 	i = 0;
-	temp = (unsigned char *)s;
+	temp = malloc(n);
+	if (!temp)
+		return (0);
 	while (i < n)
 	{
-		temp[i] = (unsigned char)c;
+		temp[i] = 0;
 		i++;
 	}
 	return (temp);
@@ -31,9 +35,10 @@ void	*ft_memset(void *s, int c, size_t n)
 /*
 int main()
 {
-	char s[] = "abcdef";
-	char *x;
-	x = ft_memset(s, 'x', 2);
-	printf("%s", x);	// "xxcdef"
+	char *s;
+	s = (char *)ft_calloc(1, 2);
+	s[0] = 'a';
+	printf("%s", s);	// ""
+	free(s);
 }
 */

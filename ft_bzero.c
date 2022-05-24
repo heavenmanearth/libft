@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtubtimt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,7 +14,7 @@
 /*
 #include <stdio.h>
 */
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	size_t			i;
 	unsigned char	*temp;
@@ -23,17 +23,15 @@ void	*ft_memset(void *s, int c, size_t n)
 	temp = (unsigned char *)s;
 	while (i < n)
 	{
-		temp[i] = (unsigned char)c;
+		temp[i] = 0;
 		i++;
 	}
-	return (temp);
 }
 /*
 int main()
 {
 	char s[] = "abcdef";
-	char *x;
-	x = ft_memset(s, 'x', 2);
-	printf("%s", x);	// "xxcdef"
+	ft_bzero(s, 1);
+	printf("%s", s);	// ""
 }
 */

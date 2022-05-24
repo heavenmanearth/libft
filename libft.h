@@ -28,5 +28,7 @@ int					ft_toupper(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
 void				*ft_memset(void *s, int c, size_t n);
+void				ft_bzero(void *s, size_t n);
+void				*ft_calloc(size_t nmemb, size_t size);
 
 #endif
