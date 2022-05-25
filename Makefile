@@ -26,6 +26,7 @@ SRCS = ft_isdigit.c \
 		ft_calloc.c \
 		ft_memchr.c \
 		ft_strchr.c \
+		ft_strrchr.c \
 
 
 		
