@@ -27,6 +27,9 @@ SRCS = ft_isdigit.c \
 		ft_memchr.c \
 		ft_strchr.c \
 		ft_strrchr.c \
+		ft_memcpy.c \
+		ft_strncmp.c \
+		ft_memmove.c \
 
 
 		
