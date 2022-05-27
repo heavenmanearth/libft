@@ -31,6 +31,7 @@ SRCS = ft_isdigit.c \
 		ft_strncmp.c \
 		ft_memmove.c \
 		ft_strdup.c \
+		ft_atoi.c \
 
 
 		
