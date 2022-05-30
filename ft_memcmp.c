@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtubtimt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,42 +14,30 @@
 /*
 #include <stdio.h>
 */
-int	ft_atoi(const char *nptr)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	i;
-	int	result;
-	int	sign;
-	int	too_much_sign_check;
+	size_t			i;
+	unsigned char	*tmp_s1;
+	unsigned char	*tmp_s2;
 
+	tmp_s1 = (unsigned char *)s1;
+	tmp_s2 = (unsigned char *)s2;
 	i = 0;
-	result = 0;
-	sign = 1;
-	too_much_sign_check = 0;
-	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ')
-		i++;
-	while ((nptr[i] == '+' || nptr[i] == '-') && (too_much_sign_check < 1))
+	while (i < n)
 	{
-		if (nptr[i] == '-')
-			sign *= -1;
-		i++;
-		too_much_sign_check++;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		result = (nptr[i] - '0') + (result * 10);
+		if (tmp_s1[i] != tmp_s2[i])
+			return (tmp_s1[i] - tmp_s2[i]);
 		i++;
 	}
-	return (sign * result);
+	return (0);
 }
 /*
 int main()
 {
-	printf("%d\n", ft_atoi("  -123   45"));		//-123
-	printf("%d \n", ft_atoi("--  +-12345"));	//0
-	printf("%d \n", ft_atoi("ed-12345"));		//0
-	printf("%d \n", ft_atoi("+de-12345"));		//0
-	printf("%d \n", ft_atoi("12345-fr+15"));		//12345
-	printf("%d \n", ft_atoi("++--12345+e-45"));		//0
-	printf("%d \n", ft_atoi("-12345"));				//-12345
+	char s[] = "abcdef";
+	char d[]= "abcdxx";
+	int p;
+	p = ft_memcmp(s,d,5);
+	printf("%d", p);	// 0
 }
 */

@@ -32,7 +32,8 @@ SRCS = ft_isdigit.c \
 		ft_memmove.c \
 		ft_strdup.c \
 		ft_atoi.c \
-
+		ft_memcmp.c \
+		ft_strlcat.c \
 
 		
 OBJS = $(SRCS:.c=.o)
