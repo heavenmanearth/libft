@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtubtimt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,30 +14,34 @@
 /*
 #include <stdio.h>
 */
-char	*ft_strchr(const char *s, int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
+	if (n == -2147483648)
 	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
-		i++;
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd('2', fd);
+		n = 147483648;
 	}
-	if (s[i] == (char)c)
-		return ((char *)(s + i));
-	return (NULL);
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n *= -1;
+	}
+	if (n < 10)
+	{
+		ft_putchar_fd(n + '0', fd);
+		return ;
+	}
+	else
+		ft_putnbr_fd(n / 10, fd);
+	ft_putnbr_fd(n % 10, fd);
 }
+
 /*
 int main()
 {
-	char *s = "abcdef";
-	char *t;
-	t = (char *)ft_strchr(s, 'b');
-	printf("%s", t);	// bcdef
-	t = (char *)ft_strchr(s, '\0');
-	printf("%s", t);	// bcdef
-
+	ft_putnbr_fd(123, 1);
+	ft_putnbr_fd(-123, 1);
+	ft_putnbr_fd(-2147483648, 1);
 }
 */

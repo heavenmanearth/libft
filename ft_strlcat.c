@@ -48,7 +48,7 @@ int main()
 	char d[]= "efgh";
 	size_t p;
 	p = ft_strlcat(d,s,8);
-	printf("%ld", p);
+	printf("%d", p);
 	printf("%s", d);
 }
 */

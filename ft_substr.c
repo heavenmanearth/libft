@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtubtimt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,30 +14,45 @@
 /*
 #include <stdio.h>
 */
-char	*ft_strchr(const char *s, int c)
+size_t	ft_space_size(char const *str, unsigned int start, size_t length)
 {
-	int	i;
+	if ((start + length) < ft_strlen(str))
+		return (length + 1);
+	return (ft_strlen(str) - start + 1);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*substr;
+	size_t	i;
 
 	i = 0;
-	while (s[i])
+	if (start < ft_strlen(s))
 	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
-		i++;
+		substr = malloc((ft_space_size(s, start, len)) * sizeof(char));
+		if (!substr)
+			return (NULL);
+		while (i < len && s[i + start])
+		{
+			substr[i] = s[i + start];
+			i++;
+		}
 	}
-	if (s[i] == (char)c)
-		return ((char *)(s + i));
-	return (NULL);
+	else
+		substr = malloc(sizeof(char));
+	if (!substr)
+		return (NULL);
+	substr[i] = '\0';
+	return (substr);
 }
 /*
-int main()
+int	main(void)
 {
-	char *s = "abcdef";
-	char *t;
-	t = (char *)ft_strchr(s, 'b');
-	printf("%s", t);	// bcdef
-	t = (char *)ft_strchr(s, '\0');
-	printf("%s", t);	// bcdef
+	char const *s;
 
-}
-*/
+	s = "test ft_substr";
+	unsigned int start = 0;
+	size_t len = 5;
+	printf("%s\n", ft_substr(s, start, len));
+	return (0);
+}*/

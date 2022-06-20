@@ -37,6 +37,6 @@ int main()
 	char *s = "abdcdef";
 	char *t;
 	t = (char *)ft_strrchr(s, 'd');
-	printf("%s", t);	// bcdef
+	printf("%s", t);	// def
 }
 */

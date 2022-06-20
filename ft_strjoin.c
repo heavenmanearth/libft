@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtubtimt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,30 +14,38 @@
 /*
 #include <stdio.h>
 */
-char	*ft_strchr(const char *s, int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+	char			*str;
+	unsigned int	length;
+	unsigned int	i;
 
+	length = ft_strlen(s1) + ft_strlen(s2);
+	str = malloc((length + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
 	i = 0;
-	while (s[i])
+	while (s1[i])
 	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
+		str[i] = s1[i];
 		i++;
 	}
-	if (s[i] == (char)c)
-		return ((char *)(s + i));
-	return (NULL);
+	i = 0;
+	while (s2[i])
+	{
+		str[i + ft_strlen(s1)] = s2[i];
+		i++;
+	}
+	str[i + ft_strlen(s1)] = '\0';
+	return (str);
 }
 /*
-int main()
-{
-	char *s = "abcdef";
-	char *t;
-	t = (char *)ft_strchr(s, 'b');
-	printf("%s", t);	// bcdef
-	t = (char *)ft_strchr(s, '\0');
-	printf("%s", t);	// bcdef
 
-}
-*/
+int	main(void)
+{
+	char	*s1 = "test";
+	char	*s2 = " join string";
+
+	printf("%s\n", ft_strjoin(s1, s2));
+	return (0);
+}*/

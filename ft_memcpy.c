@@ -40,7 +40,7 @@ int main()
 	char s[] = "abcdef";
 	char d[]= "xxxxxx";
 	char *p;
-	p = ft_memcpy(s,d,3);
-	printf("%s", p);	// xxxdef
+	p = ft_memcpy(d,s,3);
+	printf("%s", p);	// abcxxx
 }
 */

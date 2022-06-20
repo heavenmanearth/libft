@@ -38,7 +38,9 @@ int main()
 	char *s;
 	s = (char *)ft_calloc(1, 2);
 	s[0] = 'a';
-	printf("%s", s);	// ""
+	s[1] = 'b';
+	s[2] = 'c';
+	printf("%s", s);	// "abc"
 	free(s);
 }
 */

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtubtimt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,30 +14,27 @@
 /*
 #include <stdio.h>
 */
-char	*ft_strchr(const char *s, int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
+		f(i, s + i);
 		i++;
 	}
-	if (s[i] == (char)c)
-		return ((char *)(s + i));
-	return (NULL);
 }
 /*
+void increase_to_one(unsigned int i, char *s)
+{
+	*s = *s + 1;
+}
+
 int main()
 {
-	char *s = "abcdef";
-	char *t;
-	t = (char *)ft_strchr(s, 'b');
-	printf("%s", t);	// bcdef
-	t = (char *)ft_strchr(s, '\0');
-	printf("%s", t);	// bcdef
-
+	char s[] = "abcd";
+	ft_striteri(s, &increase_to_one);
+	printf("%s", s);
 }
 */

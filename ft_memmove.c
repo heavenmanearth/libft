@@ -41,7 +41,13 @@ int main()
 	char s[] = "abcdef";
 	char d[]= "xxxxxx";
 	char *p;
-	p = ft_memmove(s,d,3);
-	printf("%s", p);	// xxxdef
+	p = ft_memmove(d,s,3);
+	printf("%s", p);	// abcxxx
+
+	char s[] = "abcdef";
+	char d[]= "xxxx";
+	char *p;
+	p = ft_memmove(d,s,d);
+	printf("%s", p);	// abcdeabcdef, why?
 }
 */

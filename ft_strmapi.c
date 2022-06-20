@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtubtimt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,30 +14,36 @@
 /*
 #include <stdio.h>
 */
-char	*ft_strchr(const char *s, int c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
+	unsigned int	i;
+	char			*rtn;
 
 	i = 0;
+	if (!s || (!s && !f))
+		return (ft_strdup(""));
+	else if (!f)
+		return (ft_strdup(s));
+	rtn = ft_strdup(s);
+	if (!rtn)
+		return (rtn = NULL);
 	while (s[i])
 	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
+		rtn[i] = (*f)(i, s[i]);
 		i++;
 	}
-	if (s[i] == (char)c)
-		return ((char *)(s + i));
-	return (NULL);
+	return (rtn);
 }
 /*
+void increase_to_one(unsigned int i, char *s)
+{
+	*s = *s + 1;
+}
+
 int main()
 {
-	char *s = "abcdef";
-	char *t;
-	t = (char *)ft_strchr(s, 'b');
-	printf("%s", t);	// bcdef
-	t = (char *)ft_strchr(s, '\0');
-	printf("%s", t);	// bcdef
-
+	char s[] = "abcd";
+	ft_strmapi(s, increase_to_one);
+	printf("%s", s);	//"bcde"
 }
 */
