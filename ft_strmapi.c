@@ -20,18 +20,17 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*rtn;
 
 	i = 0;
-	if (!s || (!s && !f))
-		return (ft_strdup(""));
-	else if (!f)
-		return (ft_strdup(s));
-	rtn = ft_strdup(s);
+	if (!s || !f)
+		return (NULL);
+	rtn = (char *)malloc(ft_strlen(s) + 1);
 	if (!rtn)
-		return (rtn = NULL);
+		return (NULL);
 	while (s[i])
 	{
 		rtn[i] = (*f)(i, s[i]);
 		i++;
 	}
+	rtn[i] = '\0';
 	return (rtn);
 }
 /*

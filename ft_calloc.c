@@ -16,21 +16,13 @@
 */
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t			n;
-	size_t			i;
-	unsigned char	*temp;
+	void	*ptr;
 
-	n = nmemb * size;
-	i = 0;
-	temp = malloc(n);
-	if (!temp)
-		return (0);
-	while (i < n)
-	{
-		temp[i] = 0;
-		i++;
-	}
-	return (temp);
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, size * nmemb);
+	return (ptr);
 }
 /*
 int main()
